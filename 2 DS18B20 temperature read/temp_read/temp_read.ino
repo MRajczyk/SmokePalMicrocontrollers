@@ -1,7 +1,7 @@
 #include <OneWire.h>
 #include <DallasTemperature.h>
 
-#define ONE_WIRE_BUS 4
+#define ONE_WIRE_BUS 8
 
 OneWire oneWire(ONE_WIRE_BUS);
 
