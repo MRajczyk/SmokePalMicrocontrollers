@@ -28,7 +28,7 @@ void loop() {
     }
     else if(receivedChar == '>') {
       Serial.print("I get: \"");
-      Serial.print(receivedString);
+      Serial.println(receivedString);
       Serial.println("\"");
       if(receivedString == "ready") {
         sendTemperatureFlag = true;

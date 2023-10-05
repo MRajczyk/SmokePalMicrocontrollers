@@ -68,7 +68,7 @@ void reconnect() {
     // Attempt to connect
     if (client.connect(clientName.c_str(), mqtt_username, mqtt_password)) {
       // Serial.println("connected");
-      // Serial.write("<ready>");
+      Serial.write("<ready>");
     } else {
       // Serial.print("failed, rc=");
       // Serial.print(client.state());
