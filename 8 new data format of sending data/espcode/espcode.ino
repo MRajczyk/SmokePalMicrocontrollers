@@ -92,6 +92,7 @@ void handle_form() {
   EEPROM.commit();
   EEPROM.end();
   delay(1000);
+  Serial.println("Data saved to eeprom. Restarting...");
   ESP.restart();
 }
 
@@ -112,6 +113,7 @@ String macToStr(const uint8_t* mac) {
 
 /****** WiFi setup function ******/
 void setup_wifi() {
+  Serial.println("Entering wifi setup...");
   delay(10);
   //try to connect to wifi with credentials stored in flash
   EEPROM.get(0, eeprom_ssid);
@@ -123,9 +125,11 @@ void setup_wifi() {
   int counter = 0;
   while (WiFi.status() != WL_CONNECTED && counter < 40) {
     delay(500);
+    Serial.print(".");
     ++counter;
   }
   if(counter == 40) {
+    Serial.println("20 seconds have passed. Entering AP mode");
     WiFi.mode(WIFI_AP);
     WiFi.softAPConfig(apIP, apIP, IPAddress(255, 255, 255, 0));
     WiFi.softAP("SmokePal_wifi_setup");
@@ -190,7 +194,13 @@ void setup() {
   // put your setup code here, to run once:
   receivedString = "";
   unoSerial.begin(9600);
-  //while (!unoSerial) delay(1);
+  // Serial for debugging
+  Serial.begin(9600);
+  while (!unoSerial && !Serial) {
+    delay(1);
+  }
+  delay(1000);
+  Serial.println("Startup init");
   EEPROM.begin(EEPROM_SIZE);
   setup_wifi();
   client.setServer(mqtt_server, mqtt_port);
