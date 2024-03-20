@@ -1,4 +1,4 @@
-﻿# Arduino-tests
+﻿# SmokePal Microcontrollers Source Code
 Part of my Engineering thesis. Subfolder "9 new sensors" contains final source code used in my project.
 
 ## USAGE
