@@ -1,5 +1,5 @@
 ﻿# SmokePal Microcontrollers Source Code
-Part of my Engineering thesis. Subfolder "9 new sensors" contains final source code used in my project.
+Part of my Engineering thesis. Subfolder 10 save broker ip from form to eeprom" contains final source code used in my project.
 
 ## USAGE
 To run code you will need Arduino IDE. <br>
